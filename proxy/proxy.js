@@ -23,7 +23,8 @@ function json2string(data) {
 
 function sendToRedis(key, value) {
     var redis = require("redis");
-    client = redis.createClient(6379, 'localhost', {});
+    client = redis.createClient(6379, '172.29.4.69', {});
+    client.select(3);
     client.on("error", function (err) {
         console.log("error:" + err);
         console.log("有可能是redis尚未启动...")
